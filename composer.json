@@ -1,0 +1,20 @@
+{
+    "name": "cwkj/cwkj-wechat",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "cwkj100",
+            "email": "js@cwkj100.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.5 || ^7.0",
+        "topthink/think-helper": "^1.0 || ^3.1"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "cwkj\\api\\": "src"
+        }
+    }
+}
