@@ -2,24 +2,24 @@
 
 namespace cwkj\api;
 
+use think\api\concerns\InteractsWithHttp;
+use think\api\concerns\InteractsWithRequest;
+
 include_once __DIR__ . '/request/default.php';
 
 class Client {
 
+    use InteractsWithHttp,
+        InteractsWithRequest;
+
     public function __call($method, $params) {
-        dump($method);
         $file = __DIR__ . '/request/' . $method . '.php';
         if (file_exists($file)) {
             include_once $file;
             return new Group($this, $method);
         } else {
-            dump(new Group());
-//            return (new Group($this))->{$method}(...$params);
+            return (new Group($this))->{$method}(...$params);
         }
     }
-
-//    public function a() {
-//        echo 1;
-//    }
 
 }
